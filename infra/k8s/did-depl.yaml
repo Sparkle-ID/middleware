@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: auth-depl
+  name: did-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth
+      app: did
   template:
     metadata:
       labels:
-        app: auth
+        app: did
     spec:
       containers:
-        - name: auth
-          image: fibrinlab/auth
+        - name: did
+          image: fibrinlab/did
           env:
             - name: MONGO_URI
-              value: 'mongodb://auth-mongo-srv:27017/auth'
+              value: 'mongodb://did-mongo-srv:27017/did'
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
@@ -28,12 +28,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: auth-srv
+  name: did-srv
 spec:
   selector:
-    app: auth
+    app: did
   ports:
-    - name: auth
+    - name: did
       protocol: TCP
       port: 3000
       targetPort: 3000
