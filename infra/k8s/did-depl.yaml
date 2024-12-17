@@ -16,6 +16,10 @@ spec:
         - name: did
           image: fibrinlab/did
           env:
+            - name: OPERATOR_ID
+              value: '0.0.4560302'
+            - name: OPERATOR_KEY
+              value: '302e020100300506032b65700422042031e943e883bab5fd43071a90ab983c83e1b5cfd9981c6ac124512f012f0a5f69'
             - name: MONGO_URI
               value: 'mongodb://did-mongo-srv:27017/did'
             - name: JWT_KEY

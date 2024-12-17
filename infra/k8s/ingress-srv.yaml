@@ -17,3 +17,10 @@ spec:
               name: auth-srv
               port:
                 number: 3000
+        - pathType: ImplementationSpecific
+          path: /api/dids/?(.*)
+          backend:
+            service:
+              name: did-srv
+              port:
+                number: 3000
